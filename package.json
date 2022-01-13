@@ -20,6 +20,7 @@
     "homepage": "https://github.com/hendricius/discord-poster#readme",
     "dependencies": {
         "discord.js": "^13.5.1",
+        "dotenv": "^11.0.0",
         "express": "^4.17.2"
     },
     "devDependencies": {

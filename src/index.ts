@@ -1,17 +1,21 @@
-import { Client } from "discord.js";
-import settings from "../settings.json";
-const client = new Client({ intents: [] });
+import { Client, Intents } from "discord.js";
+require("dotenv").config();
+const client = new Client({
+    intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+});
 
 console.log("Bot is starting...");
 
 client.on("ready", () => console.log("Ready!"));
 
-client.on("message", (msg) => {
+client.on("messageCreate", (msg) => {
     if (msg.author.bot) return;
+
+    console.log(msg);
 
     if (msg.content.startsWith("!ping")) {
         msg.channel.send("!gnip");
     }
 });
 
-client.login(settings.token);
+client.login(process.env.CLIENT_TOKEN);
