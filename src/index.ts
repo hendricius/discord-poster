@@ -11,8 +11,6 @@ client.on("ready", () => console.log("Ready!"));
 client.on("messageCreate", (msg) => {
     if (msg.author.bot) return;
 
-    console.log(msg);
-
     if (msg.content.startsWith("!ping")) {
         msg.channel.send("!gnip");
     }

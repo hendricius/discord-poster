@@ -1,0 +1,7 @@
+services:
+    hendricius-discord-poster:
+        build: .
+        environment:
+            - bot_token="${CLIENT_TOKEN}"
+        ports:
+            - "443:443"
