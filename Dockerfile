@@ -10,7 +10,9 @@ RUN npm install --only=production
 
 # Our precious bot
 COPY . /usr/src/bot
+RUN npm run build
 
 EXPOSE 443
+EXPOSE 8080
 
 CMD [ "npm", "run", "start" ]

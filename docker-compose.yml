@@ -5,3 +5,4 @@ services:
             - bot_token="${CLIENT_TOKEN}"
         ports:
             - "443:443"
+            - "8080:8080"
