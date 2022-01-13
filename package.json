@@ -1,0 +1,22 @@
+{
+  "name": "discord-poster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hendricius/discord-poster.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hendricius/discord-poster/issues"
+  },
+  "homepage": "https://github.com/hendricius/discord-poster#readme",
+  "dependencies": {
+    "discord.js": "^13.5.1"
+  }
+}
