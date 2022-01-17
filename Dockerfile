@@ -12,6 +12,7 @@ RUN npm install --only=production
 COPY . /usr/src/bot
 RUN npm run build
 
+#Expose needed ports
 EXPOSE 443
 EXPOSE 8080
 
