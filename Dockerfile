@@ -1,19 +1,15 @@
-FROM node:latest
+FROM node:16
 
 # Create the directory!
-RUN mkdir -p /usr/src/bot
-WORKDIR /usr/src/bot
+WORKDIR /usr/src/app
 
-# Copy and Install our bot
-COPY package.json /usr/src/bot
-RUN npm install --only=production
-
-# Our precious bot
-COPY . /usr/src/bot
+# Our precious app
+COPY . .
+RUN npm install
 RUN npm run build
 
 #Expose needed ports
 EXPOSE 443
 EXPOSE 8080
 
-CMD [ "npm", "run", "start" ]
+CMD npm run start
