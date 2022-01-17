@@ -1,4 +1,4 @@
-import { Client, Intents } from "discord.js";
+import { Client, Intents, TextChannel } from "discord.js";
 import express from "express";
 
 //dotenv
@@ -8,6 +8,9 @@ require("dotenv").config();
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
+
+// Channels
+const testChannel = "931119486977839125";
 
 console.log("Bot is starting...");
 
@@ -30,6 +33,12 @@ const port = process.env.PORT || 8080; // default port to listen
 // define a route handler for the default home page
 app.get("/", (req, res) => {
     res.send("Hello world!");
+});
+
+app.get("/sendMessage", (req, res) => {
+    (<TextChannel>client.channels.cache.get(testChannel))?.send(`TEST FROM API`);
+
+    res.send("Success!");
 });
 
 // start the Express server
