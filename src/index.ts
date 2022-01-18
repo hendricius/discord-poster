@@ -28,7 +28,7 @@ client.login(process.env.CLIENT_TOKEN);
 
 //Express
 const app = express();
-const port = process.env.PORT || 8080; // default port to listen
+const port = process.env.PORT || 443; // default port to listen
 
 // define a route handler for the default home page
 app.get("/", (req, res) => {
