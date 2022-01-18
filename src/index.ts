@@ -35,8 +35,15 @@ app.get("/", (req, res) => {
     res.send("Hello world!");
 });
 
-app.get("/sendMessage", (req, res) => {
-    (<TextChannel>client.channels.cache.get(testChannel))?.send(`TEST FROM API`);
+app.post("/sendMessage", (req, res) => {
+    if (req.query.message) {
+        (<TextChannel>client.channels.cache.get(testChannel))?.send(
+            <string>req.query.message
+        );
+    } else {
+        res.status(400);
+        res.send("No parameter 'message' provided");
+    }
 
     res.send("Success!");
 });
