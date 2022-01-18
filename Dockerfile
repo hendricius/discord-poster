@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 # Our precious app
 COPY . .
-RUN npm install
+RUN npm install --only=production
 RUN npm run build
 
 #Expose needed ports
