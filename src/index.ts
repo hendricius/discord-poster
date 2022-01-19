@@ -16,14 +16,6 @@ console.log("Bot is starting...");
 
 client.on("ready", () => console.log("Ready!"));
 
-// client.on("messageCreate", (msg) => {
-//     if (msg.author.bot) return;
-
-//     if (msg.content.startsWith("!ping")) {
-//         msg.channel.send("!gnip");
-//     }
-// });
-
 client.login(process.env.CLIENT_TOKEN);
 
 //Express
