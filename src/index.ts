@@ -10,7 +10,8 @@ const client = new Client({
 });
 
 // Channels
-const testChannel = "931119486977839125";
+const testChannel = "840886315531632661";
+
 
 console.log("Bot is starting...");
 
