@@ -3,6 +3,7 @@ services:
         build: .
         environment:
             - bot_token="${CLIENT_TOKEN}"
+            - channel_id="${CHANNEL_ID}"
         ports:
             - "443:443"
             - "8080:8080"
