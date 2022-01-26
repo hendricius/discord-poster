@@ -48,5 +48,9 @@ app.listen(port, () => {
 });
 
 function createMessageStringFromJsonData(jsonData: any) {
-    return `User \`${jsonData.author}\` just posted: \`${jsonData.message}\`. Answer here: <${jsonData.link}>`;
+    return `Video: \`${jsonData.video_title}\`\n\
+      User: \`${jsonData.author}\`\n\
+      Message: \n
+      \`\`\`${jsonData.message}\`\`\`\n\
+      Answer here: <${jsonData.link}>`;
 }
