@@ -49,7 +49,7 @@ app.listen(port, () => {
 
 function createMessageStringFromJsonData(jsonData: any) {
     return `A new question has been posted on YouTube.\
-\n\nVideo: \`${jsonData.video_title}\`\
+\n\nVideo: \`${jsonData.vtitle}\`\
 \nUser: \`${jsonData.author}\`\
 \nMessage:\
 \`\`\`${jsonData.message}\`\`\`
