@@ -4,44 +4,49 @@ import express from "express";
 //dotenv
 require("dotenv").config();
 
-//Discord Client
+// Channel
+const channelToPostTo: string = process.env.CHANNEL_ID ?? "";
+
+// Discord.js initialization
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
-
-// Channels
-const testChannel = "840886315531632661";
-
-
 console.log("Bot is starting...");
-
 client.on("ready", () => console.log("Ready!"));
-
 client.login(process.env.CLIENT_TOKEN);
 
-//Express
+// Express
 const app = express();
+app.use(express.json());
 const port = process.env.PORT || 443; // default port to listen
 
 // define a route handler for the default home page
-app.get("/", (req, res) => {
-    res.send("Hello world!");
+app.get("/", (request, response) => {
+    response.send(`hendricius-discord-poster bot uptime: ${process.uptime()}`);
 });
 
-app.post("/sendMessage", (req, res) => {
-    if (req.query.message) {
-        (<TextChannel>client.channels.cache.get(testChannel))?.send(
-            <string>req.query.message
+app.post("/sendMessage", (request, response) => {
+    const jsonData = request.body;
+    console.log("channel id", channelToPostTo);
+
+    if (jsonData) {
+        console.log(`Posting message ${jsonData} to channel`);
+        (<TextChannel>client.channels.cache.get(channelToPostTo))?.send(
+            createMessageStringFromJsonData(jsonData)
         );
     } else {
-        res.status(400);
-        res.send("No parameter 'message' provided");
+        response.status(400);
+        response.send("No body with json data provided");
     }
 
-    res.send("Success!");
+    response.send("Success!");
 });
 
 // start the Express server
 app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
 });
+
+function createMessageStringFromJsonData(jsonData: any) {
+    return `User ${jsonData.author} just posted: ${jsonData.message}. Answer here: ${jsonData.link}`;
+}
