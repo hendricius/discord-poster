@@ -53,5 +53,6 @@ function createMessageStringFromJsonData(jsonData: any) {
 \nUser: \`${jsonData.author}\`\
 \nMessage:\
 \`\`\`${jsonData.message}\`\`\`
-You can answer the question answer here: <${jsonData.link}>`;
+You can answer the question answer here: <${jsonData.link}>\
+\n-----------------------------`;
 }
