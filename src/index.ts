@@ -20,7 +20,7 @@ const app = express();
 app.use(express.json());
 const port = process.env.PORT || 443; // default port to listen
 
-// define a route handler for the default home page
+//#region Routes
 app.get("/", (request, response) => {
     response.send(`hendricius-discord-poster bot uptime: ${process.uptime()}`);
 });
@@ -41,6 +41,7 @@ app.post("/sendMessage", (request, response) => {
 
     response.send("Success!");
 });
+//#endregion Routes
 
 // start the Express server
 app.listen(port, () => {
