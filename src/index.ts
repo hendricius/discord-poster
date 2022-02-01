@@ -48,6 +48,7 @@ app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
 });
 
+// Definition of message format
 function createMessageStringFromJsonData(jsonData: any) {
     return `A new question has been posted on YouTube.\
 \n\nVideo: \`${jsonData.vtitle}\`\
